@@ -17,11 +17,12 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install pipenv
-        pipenv install --dev --pre --system
+        python -m pipenv install --dev --pre --system
         export PYTHONPATH="$PWD"
-    - name: Check Code Format
-      run:
-        black --check $PWD
-    - name: Run Tests
+#    - name: Linting
+#      run: |
+#        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+#        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Unit Tests
       run:
         pytest tests
