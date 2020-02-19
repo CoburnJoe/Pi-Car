@@ -1,17 +1,29 @@
-name: validate build
-
-on: [push, pull_request]
-
+name: Python package
+on: [push]
 jobs:
   build:
 
     runs-on: ubuntu-latest
     strategy:
+      #max-parallel: 4
       matrix:
         python-version: [3.7]
 
     steps:
-    - name: Unit tests
+    - uses: actions/checkout@v1
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
       run: |
-        pip install pytest
-        pytest tests
+        python -m pip install --upgrade pip
+        pip install pipenv
+        python -m pipenv install --dev --pre --system
+#    - name: Linting
+#      run: |
+#        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+#        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Tests
+      run:
+        pytest
