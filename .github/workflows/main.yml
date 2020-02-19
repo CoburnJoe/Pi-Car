@@ -17,7 +17,7 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install pipenv
-        python -m pipenv install --dev --pre --system
+        python -m pipenv install --dev --pre
         export PYTHONPATH="$PWD"
 #    - name: Linting
 #      run: |
