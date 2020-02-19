@@ -1,0 +1,17 @@
+name: validate build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7]
+
+    steps:
+    - name: Unit tests
+      run: |
+        pip install pytest
+        pytest tests
