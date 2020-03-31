@@ -2,7 +2,6 @@ import logging
 
 from flask import Flask
 from logging.handlers import RotatingFileHandler
-from flask.logging import default_handler
 
 
 def create_app(config_file="config/local_config.py"):
