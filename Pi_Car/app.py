@@ -11,8 +11,8 @@ def create_app(config_file="config/local_config.py"):
     # Configure file based log handler
     log_file_handler = RotatingFileHandler(
         f'{app.config.get("LOG_FILE_NAME", "config/pi-car.log")}',
-        maxBytes=10000,
-        backupCount=1,
+        maxBytes=10000000,
+        backupCount=4,
     )
     log_file_handler.setLevel(app.config.get("LOGGER_LEVEL", "ERROR"))
     log_file_handler.setFormatter(
