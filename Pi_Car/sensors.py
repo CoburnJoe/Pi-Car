@@ -1,4 +1,5 @@
 from flask import current_app as app
+import importlib
 
 try:
     from w1thermsensor import W1ThermSensor
@@ -16,6 +17,7 @@ class Sensors:
         app.logger.info("Starting to read temperature sensor")
 
         try:
+            W1ThermSensor = importlib.reload("W1ThermSensor")
             sensor = W1ThermSensor()
             temperature = sensor.get_temperature()
         except TypeError:
