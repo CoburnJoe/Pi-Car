@@ -1,4 +1,6 @@
 from flask import current_app as app
+from w1thermsensor import W1ThermSensor
+
 
 class Sensors:
     @staticmethod
@@ -10,7 +12,6 @@ class Sensors:
         app.logger.info("Starting to read temperature sensor")
 
         try:
-            from w1thermsensor import W1ThermSensor
             sensor = W1ThermSensor()
             temperature = sensor.get_temperature()
         except TypeError as e:
