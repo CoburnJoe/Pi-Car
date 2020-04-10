@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from Pi_Car.sensors import Sensors
+from .sensors import Sensors
 from flask import current_app as app
 
 data_blueprint = Blueprint("data", __name__)
