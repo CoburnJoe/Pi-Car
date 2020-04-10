@@ -1,11 +1,4 @@
 from flask import current_app as app
-import importlib
-
-try:
-    from w1thermsensor import W1ThermSensor
-except Exception:
-    W1ThermSensor = None
-
 
 class Sensors:
     @staticmethod
@@ -17,12 +10,12 @@ class Sensors:
         app.logger.info("Starting to read temperature sensor")
 
         try:
-            W1ThermSensor = importlib.reload("W1ThermSensor")
+            from w1thermsensor import W1ThermSensor
             sensor = W1ThermSensor()
             temperature = sensor.get_temperature()
-        except TypeError:
+        except TypeError as e:
             app.logger.warning(
-                "Unable to use primary temperature sensor in this environment"
+                f"Unable to use primary temperature sensor in this environment: {e}"
             )
             temperature = 0
         except Exception as e:
