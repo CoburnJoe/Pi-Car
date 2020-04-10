@@ -1,5 +1,9 @@
 from flask import current_app as app
-from w1thermsensor import W1ThermSensor
+
+try:
+    from w1thermsensor import W1ThermSensor
+except Exception:
+    W1ThermSensor = None
 
 
 class Sensors:
