@@ -1,7 +1,5 @@
 from flask import current_app as app
-from gpiozero import Button, exc, Device
-from gpiozero.pins.native import NativeFactory
-
+from gpiozero import Button, exc
 
 try:
     from w1thermsensor import W1ThermSensor
@@ -42,10 +40,8 @@ class Sensors:
         result = None
         status = None
 
-        Device.pin_factory = NativeFactory()
-
         try:
-            button = Button(pin=11)
+            button = Button(11)
             status = button.is_held()
         except exc.BadPinFactory as e:
             app.logger.warning(f"Unable to use boot sensor in this environment: {e}")
