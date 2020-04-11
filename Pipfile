@@ -10,6 +10,7 @@ black = "*"
 [packages]
 flask = "*"
 w1thermsensor = "*"
+gpiozero = "*"
 
 [requires]
 python_version = "3.7"
