@@ -41,7 +41,7 @@ class Sensors:
         status = None
 
         try:
-            button = Button(11)
+            button = Button(17, pull_up=False)
             status = button.is_held()
         except exc.BadPinFactory as e:
             app.logger.warning(f"Unable to use boot sensor in this environment: {e}")
