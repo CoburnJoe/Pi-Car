@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a4ba91f88b7877d8205a7764db1ba36c08b23fe1d7279a043d9d4093ca6c6a5a"
+            "sha256": "fe852093a1f0b0e525b91914b8f5f10419870bbd9c350c62163828c0f732570a"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -86,14 +86,6 @@
                 "sha256:eed1b234c4499811ee85bcefa22ef5e466e75d132502226ed29740d593316c1f"
             ],
             "version": "==2.0.0a1"
-        },
-        "pigpio": {
-            "hashes": [
-                "sha256:8dbeb9445c128654e9368e8e1e4c4b06602b450e6556bebccc2efae82fb5dc85",
-                "sha256:f5f2562f8f7aab0c6cf7235e501e72bedbf063efda725c6086c352b5e4b2f59d"
-            ],
-            "index": "pypi",
-            "version": "==1.46"
         },
         "w1thermsensor": {
             "hashes": [
