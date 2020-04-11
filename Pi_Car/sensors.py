@@ -44,7 +44,10 @@ class Sensors:
             button = Button(pin=11)
             status = button.is_held()
         except exc.BadPinFactory as e:
-            app.logger.warning(f"Unable to use boot sensor in this environment")
+            app.logger.warning(f"Unable to use boot sensor in this environment: {e}")
+            result = "Unknown"
+        except Exception as e:
+            app.logger.warning(f"Unknown problem with boot sensor: {e}")
             result = "Unknown"
 
         if not result:
