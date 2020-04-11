@@ -1,5 +1,7 @@
 from flask import current_app as app
-from gpiozero import Button, exc
+from gpiozero import Button, exc, Device
+from gpiozero.pins.native import NativeFactory
+
 
 try:
     from w1thermsensor import W1ThermSensor
@@ -39,6 +41,8 @@ class Sensors:
         app.logger.info("Starting to read boot sensor")
         result = None
         status = None
+
+        Device.pin_factory = NativeFactory()
 
         try:
             button = Button(pin=11)
