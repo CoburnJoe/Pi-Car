@@ -88,7 +88,7 @@ class Sensors:
         else:
             result = "Nighttime"
 
-        app.logger.debug(f"Light: {status}")
+        app.logger.debug(f"Light: {status} - {result}")
         app.logger.info("Finished reading available light")
 
         return result
