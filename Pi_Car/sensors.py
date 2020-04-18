@@ -71,27 +71,24 @@ class Sensors:
         :return: String - light status
         """
         app.logger.info("Starting to read available light")
-        result = None
-        status = None
+        status = -1
 
         try:
             sensor = LightSensor(pin=15)
             status = float(sensor.value)
         except exc.BadPinFactory as e:
             app.logger.warning(f"Unable to use light sensor in this environment: {e}")
-            result = "Unknown"
         except Exception as e:
             app.logger.error(f"Unknown problem with light sensor: {e}")
-            result = "Unknown"
 
-        if not result:
-            if status:
-                if status >= 0.6:
-                    result = "Daytime"
-                elif 0.6 > status > 0.2:
-                    result = "Dusk"
-                else:
-                    result = "Nighttime"
+        if status == -1:
+            result = "Unknown"
+        elif status >= 0.6:
+            result = "Daytime"
+        elif 0.6 > status > 0.2:
+            result = "Dusk"
+        else:
+            result = "Nighttime"
 
         app.logger.debug(f"Light: {status}")
         app.logger.info("Finished reading available light")
