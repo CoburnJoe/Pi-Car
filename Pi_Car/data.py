@@ -11,8 +11,16 @@ def show():
     temperature = Sensors.get_external_temp()
     boot_status = Sensors.get_boot_status()
     light_status = Sensors.get_light_status()
+    reverse_light = Sensors.get_reverse_status()
+    fog_light = Sensors.get_fog_light_status()
 
-    result = {"temperature": temperature, "boot": boot_status, "light": light_status}
+    result = {
+        "temperature": temperature,
+        "boot": boot_status,
+        "light": light_status,
+        "reverse": reverse_light,
+        "fog": fog_light,
+    }
 
     app.logger.info("Finished retrieving core data")
     app.logger.debug(f"Core data: {result}")

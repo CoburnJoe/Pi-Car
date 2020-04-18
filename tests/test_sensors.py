@@ -7,6 +7,18 @@ from gpiozero import exc
 
 class TestSensors:
     @patch("Pi_Car.sensors.Button")
+    def test_get_bool_pin_bad_pin_factory(self, mock_button):
+        mock_button.side_effect = exc.BadPinFactory
+        result = Sensors.get_bool_pin(pin=None)
+        assert result is None
+
+    @patch("Pi_Car.sensors.Button")
+    def test_get_bool_pin_other_pin_error(self, mock_button):
+        mock_button.side_effect = TypeError
+        result = Sensors.get_bool_pin(pin=None)
+        assert result is None
+
+    @patch("Pi_Car.sensors.Button")
     def test_get_boot_status_bad_pin_factory(self, mock_button):
         mock_button.side_effect = exc.BadPinFactory
         result = Sensors.get_boot_status()
