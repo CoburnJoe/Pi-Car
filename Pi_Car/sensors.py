@@ -83,10 +83,8 @@ class Sensors:
 
         if status == -1:
             result = "Unknown"
-        elif status >= 0.6:
+        elif status >= 0.5:
             result = "Daytime"
-        elif 0.6 > status > 0.2:
-            result = "Dusk"
         else:
             result = "Nighttime"
 
