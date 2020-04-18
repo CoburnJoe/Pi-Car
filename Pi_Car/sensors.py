@@ -76,7 +76,7 @@ class Sensors:
         """
         app.logger.info("Starting to read fog light sensor")
         result = cls.get_bool_pin(pin=23)
-        app.logger.debug(f"Boot: {result}")
+        app.logger.debug(f"Fog: {result}")
         app.logger.info("Finished reading fog light sensor")
         return result
 
