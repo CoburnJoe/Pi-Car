@@ -44,7 +44,7 @@ class Sensors:
         app.logger.info(f"Starting to read boolean value from pin: {pin}")
 
         try:
-            button = Button(pin=pin)
+            button = Button(pin=pin, pull_up=False)
             result = button.is_pressed
         except exc.BadPinFactory as e:
             app.logger.warning(f"Unable to use boot sensor in this environment: {e}")
