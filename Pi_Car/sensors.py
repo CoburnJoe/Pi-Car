@@ -1,5 +1,3 @@
-import time
-
 from flask import current_app as app
 from gpiozero import Button, exc, LightSensor, Buzzer
 
@@ -11,16 +9,14 @@ except Exception:
 
 class Sensors:
     @staticmethod
-    def beep(duration=0.5):
+    def beep():
         """
         Issue a single "beep" sound
         :param duration: Time (in seconds) to sustain the sound for
         :return: None
         """
         buzzer = Buzzer(pin=24)
-        buzzer.on()
-        time.sleep(duration)
-        buzzer.off()
+        buzzer.beep(on_time=0.5, off_time=0.5, n=4)
 
     @staticmethod
     def get_external_temp():
