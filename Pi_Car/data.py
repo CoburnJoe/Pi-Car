@@ -22,6 +22,7 @@ def show():
         "fog": fog_light,
     }
 
+    Sensors.beep()
     app.logger.info("Finished retrieving core data")
     app.logger.debug(f"Core data: {result}")
     return jsonify(result)
