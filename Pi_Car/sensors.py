@@ -93,6 +93,18 @@ class Sensors:
         return result
 
     @classmethod
+    def get_rear_distance_sensor(cls):
+        """
+        Safely read the reversing sensor
+        :return: Boolean - reversing or not, or None
+        """
+        app.logger.info("Starting to read distance sensor")
+        result = cls.get_bool_pin(pin=25)
+        app.logger.debug(f"Rear distance sensor: {result}")
+        app.logger.info("Finished reading distance sensor")
+        return result
+
+    @classmethod
     def get_fog_light_status(cls):
         """
         Safely read the fog light sensor

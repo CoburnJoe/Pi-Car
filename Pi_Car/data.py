@@ -13,12 +13,14 @@ def show():
     light_status = Sensors.get_light_status()
     reverse_light = Sensors.get_reverse_status()
     fog_light = Sensors.get_fog_light_status()
+    rear_distance = Sensors.get_rear_distance_sensor()
 
     result = {
         "temperature": temperature,
         "boot": boot_status,
         "light": light_status,
         "reverse": reverse_light,
+        "rear_distance": rear_distance,
         "fog": fog_light,
     }
 
