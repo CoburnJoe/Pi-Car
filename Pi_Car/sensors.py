@@ -101,6 +101,8 @@ class Sensors:
         app.logger.info("Starting to read distance sensor")
         result = cls.get_bool_pin(pin=25)
         if result:
+            result = False
+        else:
             result = True
         app.logger.debug(f"Rear distance sensor: {result}")
         app.logger.info("Finished reading distance sensor")
