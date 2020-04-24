@@ -11,15 +11,26 @@ except Exception:
 
 class Sensors:
     @staticmethod
-    def beep():
+    def beep(duration=1):
         """
         Issue a single "beep" sound
+        :param duration: Time to sustain beep for, in seconds
         :return: None
         """
-        buzzer = Buzzer(pin=24)
-        buzzer.on()
-        time.sleep(1)
-        buzzer.off()
+        app.logger.info("Starting beep")
+        app.logger.debug(f"Beep duration: {duration}")
+
+        try:
+            buzzer = Buzzer(pin=24)
+            buzzer.on()
+            time.sleep(duration)
+            buzzer.off()
+        except exc.BadPinFactory as e:
+            app.logger.warning(f"Unable to issue beep in this environment: {e}")
+        except Exception as e:
+            app.logger.error(f"Unknown problem with beep: {e}")
+
+        app.logger.info("Finished beep")
 
     @staticmethod
     def get_external_temp():
