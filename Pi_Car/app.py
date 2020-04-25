@@ -1,8 +1,9 @@
+import os
 import logging
 
-from flask import Flask
+from flask import Flask, send_from_directory
 from logging.handlers import RotatingFileHandler
-from .data import data_blueprint
+from .main import data_blueprint
 from .reverse import reverse_blueprint
 
 
@@ -28,6 +29,14 @@ def create_app(config_file="config/local_config.py"):
 
     app.register_blueprint(data_blueprint)
     app.register_blueprint(reverse_blueprint)
+
+    @app.route("/favicon.ico")
+    def favi():
+        return send_from_directory(
+            os.path.join(app.root_path, "static"),
+            "favicon.ico",
+            mimetype="image/vnd.microsoft.icon",
+        )
 
     app.logger.info("----- FINISHED STARTING APP -----")
 

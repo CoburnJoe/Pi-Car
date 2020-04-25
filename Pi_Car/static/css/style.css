@@ -1,0 +1,33 @@
+html,
+body {
+	font-size: 30px;
+	background-color: var(--gray-dark);
+	text-shadow: 2px 2px #000000;
+}
+
+i {
+	margin-right: 10px;
+}
+
+.icon-huge {
+	font-size: 350px;
+	font-weight: bold;
+	text-shadow: 4px 4px #000000;
+}
+
+.fa-snowflake {
+	color: var(--blue);
+}
+
+.fa-sun {
+	color: var(--yellow);
+}
+
+.fa-moon {
+	color: var(--cyan);
+}
+
+.fa-exclamation,
+.exclamation {
+	color: var(--red);
+}

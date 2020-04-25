@@ -3,6 +3,8 @@ Raspberry Pi based smart car dashboard
 
 Pre-Alpha codebase, to accompany an as-yet unpublished tutorial book.
 
+![Car dashboard example](https://raw.githubusercontent.com/CoburnJoe/Pi-Car/master/samples/dashboard.png)
+
 # Developing/Configuring Environment
 Make sure you have Python 3.x installed on your machine (use [pyenv](https://github.com/pyenv/pyenv)).
 
