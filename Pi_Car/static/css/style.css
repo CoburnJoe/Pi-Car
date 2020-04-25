@@ -6,8 +6,8 @@ body {
 	cursor: none;
 }
 
-html {
-    padding: 15px;
+.text-right {
+    padding-right: 5px;
 }
 
 i {
