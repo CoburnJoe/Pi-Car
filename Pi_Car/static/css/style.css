@@ -1,8 +1,12 @@
 html,
 body {
-	font-size: 30px;
+	font-size: 20px;
 	background-color: var(--gray-dark);
 	text-shadow: 2px 2px #000000;
+}
+
+html {
+    padding: 5px;
 }
 
 i {
