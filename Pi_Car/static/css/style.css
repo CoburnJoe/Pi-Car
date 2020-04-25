@@ -1,9 +1,13 @@
 html,
 body {
-	font-size: 30px;
+	font-size: 25px;
 	background-color: var(--gray-dark);
 	text-shadow: 2px 2px #000000;
 	cursor: none;
+}
+
+html {
+    padding: 10px;
 }
 
 i {
@@ -11,7 +15,7 @@ i {
 }
 
 .icon-huge {
-	font-size: 300px;
+	font-size: 325px;
 	font-weight: bold;
 	text-shadow: 4px 4px #000000;
 }
