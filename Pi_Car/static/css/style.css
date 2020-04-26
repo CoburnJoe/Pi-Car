@@ -10,7 +10,7 @@ html {
     padding: 20px;
 }
 
-html.reverse {
+.reverse {
     padding: 0;
     margin: 0;
 }
