@@ -21,7 +21,7 @@ def reverse_beep():
     app.logger.info("Starting to load reverse rear detection")
     sensors = Sensors()
     reverse_light = sensors.get_reverse_status()
-    if reverse_light:
+    if not reverse_light:
         return "Exit"
 
     rear_distance_item = sensors.get_rear_distance_sensor()
