@@ -25,7 +25,6 @@ def show():
         "temperature": temperature,
         "boot": boot_status,
         "light": light_status,
-        "reverse": reverse_light,
         "fog": fog_light,
         "time": time,
         "date": date,
@@ -33,4 +32,5 @@ def show():
 
     app.logger.info("Finished retrieving core data")
     app.logger.debug(f"Core data: {result}")
+
     return render_template("main.html", data=result)
