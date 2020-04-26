@@ -7,6 +7,10 @@ body {
 	padding: 0;
 }
 
+html {
+    padding: 20px;
+}
+
 i {
 	margin-right: 10px;
 }
