@@ -2,6 +2,7 @@ from flask import Blueprint, render_template
 from .sensors import Sensors
 from flask import current_app as app
 from datetime import datetime
+from .reverse import reverse
 
 main_blueprint = Blueprint("main", __name__)
 
@@ -11,10 +12,13 @@ def show():
     app.logger.info("Starting to retrieve core data")
     sensors = Sensors()
 
+    reverse_light = sensors.get_reverse_status()
+    if reverse_light:
+        return reverse()
+
     temperature = sensors.get_external_temp()
     boot_status = sensors.get_boot_status()
     light_status = sensors.get_light_status()
-    reverse_light = sensors.get_reverse_status()
     fog_light = sensors.get_fog_light_status()
 
     today = datetime.now()
