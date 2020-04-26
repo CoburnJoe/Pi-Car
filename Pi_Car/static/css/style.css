@@ -4,6 +4,7 @@ body {
 	background-color: var(--gray-dark);
 	text-shadow: 2px 2px #000000;
 	cursor: none;
+	padding: 0;
 }
 
 i {
