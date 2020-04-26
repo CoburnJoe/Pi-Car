@@ -8,8 +8,26 @@
         <title>Pi Car</title>
         <meta name="description" content="Raspberry Pi based car system">
         <meta name="author" content="Joe Coburn">
-        <link rel="stylesheet" type="text/css" href="/static/bootstrap-4.3.1-dist/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+
+        <script type="text/javascript">
+            var runSensors = function() {
+              var xhttp = new XMLHttpRequest();
+              xhttp.open("GET", "/reverse/beep/", true);
+              xhttp.onreadystatechange = function() {
+                if (xhttp.readyState === 4) {
+                  result = xhttp.response
+                  if (result === "Exit") {
+                    window.location.href = "/";
+                  }
+                }
+              }
+              xhttp.send();
+            }
+            window.onload = function() {
+              setInterval(runSensors, 250);
+            }
+        </script>
     </head>
 
     <body>
