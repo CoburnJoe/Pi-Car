@@ -43,11 +43,11 @@
         </div>
         <div class="row">
             <div class="col text-middle">
-                {% if boot_status == 'Open' %}
+                {% if data.boot_status == 'Open' %}
                     <i class="fas fa-exclamation"></i><span class="exclamation">Boot is open</span>
                 {% endif %}
                 <br>
-                {% if fog_light %}
+                {% if data.fog_light %}
                     <i class="fas fa-lightbulb"></i>Fog lights are on
                 {% endif %}
             </div>
