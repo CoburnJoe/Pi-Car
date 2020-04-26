@@ -28,7 +28,7 @@
                 {% endif %}
                 {{ data.temperature }}° C
                 <br />
-                {% if data.light_status == 'Daytime' %}
+                {% if data.light == 'Daytime' %}
                     <i class="fas fa-sun"></i>
                 {% else %}
                     <i class="fas fa-moon"></i>
@@ -43,11 +43,11 @@
         </div>
         <div class="row">
             <div class="col text-middle">
-                {% if data.boot_status == 'Open' %}
+                {% if data.boot == 'Open' %}
                     <i class="fas fa-exclamation"></i><span class="exclamation">Boot is open</span>
                 {% endif %}
                 <br>
-                {% if data.fog_light %}
+                {% if data.fog %}
                     <i class="fas fa-lightbulb"></i>Fog lights are on
                 {% endif %}
             </div>
