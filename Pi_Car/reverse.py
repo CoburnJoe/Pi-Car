@@ -18,7 +18,6 @@ def reverse():
 
 @reverse_blueprint.route("/reverse/beep/")
 def reverse_beep():
-    app.logger.info("Starting to load reverse rear detection")
     sensors = Sensors()
     reverse_light = sensors.get_reverse_status()
     if not reverse_light:
@@ -27,6 +26,5 @@ def reverse_beep():
     rear_distance_item = sensors.get_rear_distance_sensor()
     if rear_distance_item:
         sensors.beep()
-    app.logger.info("Finished loading reverse rear detection")
 
     return "Success"
