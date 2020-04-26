@@ -1,31 +1,36 @@
-from flask import Blueprint, jsonify, render_template
+from flask import Blueprint, render_template
 from .sensors import Sensors
 from flask import current_app as app
+from datetime import datetime
 
-data_blueprint = Blueprint("data", __name__)
+main_blueprint = Blueprint("main", __name__)
 
 
-@data_blueprint.route("/")
+@main_blueprint.route("/")
 def show():
     app.logger.info("Starting to retrieve core data")
-    temperature = Sensors.get_external_temp()
-    boot_status = Sensors.get_boot_status()
-    light_status = Sensors.get_light_status()
-    reverse_light = Sensors.get_reverse_status()
-    fog_light = Sensors.get_fog_light_status()
-    rear_distance = Sensors.get_rear_distance_sensor()
+    sensors = Sensors()
+
+    temperature = sensors.get_external_temp()
+    boot_status = sensors.get_boot_status()
+    light_status = sensors.get_light_status()
+    reverse_light = sensors.get_reverse_status()
+    fog_light = sensors.get_fog_light_status()
+
+    today = datetime.now()
+    time = today.strftime("%H:%M")
+    date = today.strftime("%A %d %B %Y")
 
     result = {
-        "temperature": "temperature",
-        "boot": "boot_status",
-        "light": "light_status",
-        "reverse": "reverse_light",
-        "rear_distance": "rear_distance",
-        "fog": "fog_light",
+        "temperature": temperature,
+        "boot": boot_status,
+        "light": light_status,
+        "reverse": reverse_light,
+        "fog": fog_light,
+        "time": time,
+        "date": date,
     }
 
-    Sensors.beep()
     app.logger.info("Finished retrieving core data")
     app.logger.debug(f"Core data: {result}")
-    # return jsonify(result)
-    return render_template("main.html")
+    return render_template("main.html", data=result)

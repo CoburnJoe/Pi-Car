@@ -3,7 +3,7 @@ import logging
 
 from flask import Flask, send_from_directory
 from logging.handlers import RotatingFileHandler
-from .main import data_blueprint
+from .main import main_blueprint
 from .reverse import reverse_blueprint
 
 
@@ -27,7 +27,7 @@ def create_app(config_file="config/local_config.py"):
 
     app.logger.info("----- STARTING APP ------")
 
-    app.register_blueprint(data_blueprint)
+    app.register_blueprint(main_blueprint)
     app.register_blueprint(reverse_blueprint)
 
     @app.route("/favicon.ico")

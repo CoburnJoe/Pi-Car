@@ -17,16 +17,23 @@
 <body>
     <div class="container text-center text-light">
         <h2>Hello.</h2>
-        <h3>Wednesday 8th January 2020</h3>
+        <h3>{{ data.date }}</h3>
         <div class="row">
             <div class="col text-left">
-                <i class="fas fa-clock"></i>15:50
+                <i class="fas fa-clock"></i>{{ data.time }}
             </div>
             <div class="col text-right">
-                <i class="fas fa-snowflake"></i> 20° C
+                {% if data.temperature <=4 %}
+                    <i class="fas fa-snowflake"></i>
+                {% endif %}
+                {{ data.temperature }}° C
                 <br />
-                <i class="fas fa-moon"></i>
-                <i class="fas fa-sun"></i>Daytime
+                {% if data.light_status == 'Daytime' %}
+                    <i class="fas fa-sun"></i>
+                {% else %}
+                    <i class="fas fa-moon"></i>
+                {% endif %}
+                {{ data.light_status }}
             </div>
         </div>
         <div class="row">
@@ -36,9 +43,13 @@
         </div>
         <div class="row">
             <div class="col text-middle">
-                <i class="fas fa-exclamation"></i><span class="exclamation">Boot is open</span>
+                {% if boot_status %}
+                    <i class="fas fa-exclamation"></i><span class="exclamation">Boot is open</span>
+                {% endif %}
                 <br>
-                <i class="fas fa-lightbulb"></i>Fog lights are on
+                {% if fog_light %}
+                    <i class="fas fa-lightbulb"></i>Fog lights are on
+                {% endif %}
             </div>
         </div>
     </div>
