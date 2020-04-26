@@ -10,6 +10,11 @@ html {
     padding: 20px;
 }
 
+html.reverse {
+    padding: 0;
+    margin: 0;
+}
+
 i {
 	margin-right: 10px;
 }
