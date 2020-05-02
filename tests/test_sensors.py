@@ -7,14 +7,14 @@ from gpiozero import exc
 
 class TestSensors:
     @patch("Pi_Car.sensors.Buzzer")
-    def test_beep_bad_pin_factory(self, mock_button):
-        mock_button.side_effect = exc.BadPinFactory
+    def test_beep_bad_pin_factory(self, mock_buzzer):
+        mock_buzzer.side_effect = exc.BadPinFactory
         result = Sensors.beep()
         assert result is None
 
     @patch("Pi_Car.sensors.Buzzer")
-    def test_beep_other_pin_error(self, mock_button):
-        mock_button.side_effect = TypeError
+    def test_beep_other_pin_error(self, mock_buzzer):
+        mock_buzzer.side_effect = TypeError
         result = Sensors.beep()
         assert result is None
 
