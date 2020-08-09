@@ -1,7 +1,7 @@
 # Pi-Car
 Raspberry Pi based smart car dashboard
 
-Pre-Alpha codebase, to accompany an as-yet unpublished tutorial book.
+Tutorial codebase, to accompany my [Python book] (https://www.amazon.co.uk/Build-Your-Own-Dashboard-Raspberry/dp/1484260791)
 
 ![Car dashboard example](https://raw.githubusercontent.com/CoburnJoe/Pi-Car/master/samples/dashboard.png)
 
